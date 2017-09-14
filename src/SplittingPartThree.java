@@ -1,11 +1,11 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class Splitting extends Thread {
+public class SplittingPartThree extends Thread {
     private List<Integer> list;
     private int max;
 
-    Splitting(List<Integer> list, int max){
+    SplittingPartThree(List<Integer> list, int max){
         this.list = list;
         this.max = max;
     }

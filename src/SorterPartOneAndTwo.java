@@ -1,18 +1,21 @@
 import java.util.List;
 
-public class Sorter implements Runnable {
+/**
+ * ...
+ */
+public class SorterPartOneAndTwo implements Runnable {
     private List<Integer> myIntegerList;
 
-    public Sorter(List<Integer> integers) {
+    public SorterPartOneAndTwo(List<Integer> integers) {
         myIntegerList = integers;
     }
 
     @Override
     public void run() {
-        //This run also does an insertion sort, a duplicate of the one in Main, as both main and multi threading need
+        //This run also does an insertion sort, a duplicate of the one in MainPartOneAndTwo, as both main and multi threading need
         // them separate.
         SortingAlgorithms sortingAlgorithms = new SortingAlgorithms();
-
+        //To prevent duplicate code, make use of the SortingAlgorithm class' insertionSort method.
         myIntegerList = sortingAlgorithms.insertionSort(myIntegerList);
     }
 

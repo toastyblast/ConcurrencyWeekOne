@@ -1,12 +1,12 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class Sorting extends Thread {
+public class SortingPartThree extends Thread {
 
     private List<Integer> list;
     private int max;
 
-    Sorting(List<Integer> list, int max){
+    SortingPartThree(List<Integer> list, int max){
         this.list = list;
         this.max = max;
     }
@@ -30,8 +30,8 @@ public class Sorting extends Thread {
                     list2.add(copyList.get(i));
             }
 
-            Thread t1 = new Sorting(list1, 1000000);
-            Thread t2 = new Sorting(list2, 1000000);
+            Thread t1 = new SortingPartThree(list1, 1000000);
+            Thread t2 = new SortingPartThree(list2, 1000000);
 
             t1.start();
             t2.start();
@@ -49,7 +49,7 @@ public class Sorting extends Thread {
 
 
             try {
-                merge(list1, list2);
+                mergeIntoExistingList(list1, list2);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
@@ -84,10 +84,9 @@ public class Sorting extends Thread {
         }
     }
 
-    private void merge(List<Integer> list1, List<Integer> list2) throws InterruptedException {
-        List<Integer> finalList = new ArrayList<>();
-
+    private void mergeIntoExistingList(List<Integer> list1, List<Integer> list2) throws InterruptedException {
         int i = 0, j = 0, k = 0;
+
         while (i < list1.size() && j < list2.size()) {
 
             if (list1.get(i) < list2.get(j)) {
@@ -111,6 +110,5 @@ public class Sorting extends Thread {
             k++;
             j++;
         }
-
     }
 }
