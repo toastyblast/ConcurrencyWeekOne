@@ -7,7 +7,7 @@ public class Main {
     }
 
     public void run() {
-        int exercisePart = 3;
+        int exercisePart = 2;
 
         //For choosing which exercise part to run. Used a switch before, but that decided to run all three regardless,
         // so switched to for-statements instead
@@ -22,6 +22,7 @@ public class Main {
 
     public void runExercisePart1() {
         List<Integer> arrayListToSort = new ArrayList<>();
+        SortingAlgorithms sortingAlgorithms = new SortingAlgorithms();
 
         for (int i = 0; i < 25000; i++) {
             arrayListToSort.add((int) ((Math.random() * 1000) + 1));
@@ -29,7 +30,7 @@ public class Main {
 
         Long startTime = System.currentTimeMillis();
 
-        List<Integer> sortedArrayList = insertionSort(arrayListToSort);
+        List<Integer> sortedArrayList = sortingAlgorithms.insertionSort(arrayListToSort);
 
         Long endTime = System.currentTimeMillis();
 
@@ -51,7 +52,7 @@ public class Main {
         List<Integer> arrayListToSort = new ArrayList<>();
         //Change this number to increase the amount of random numbers in the unsorted ArrayList. Only enter numbers that
         // are round when divided by 2! (i.e. 4 (2+2), 20 (10+10), 100 (50+50), etc)
-        int wantedArraySize = 400000;
+        int wantedArraySize = 25000;
 
         for (int i = 0; i < wantedArraySize; i++) {
             arrayListToSort.add((int) ((Math.random() * 1000) + 1));
@@ -163,32 +164,5 @@ public class Main {
         //Time taken for 200K = ~... ms.
         //Time taken for 400K = ~... ms.
         //Time taken for 800K = ~... ms.
-    }
-
-    /**
-     * Sort the list based on the insertion sort algorithm. Duplicate code with the Sorter class because for part 1 the
-     * tests should be done on the main thread only.
-     *
-     * @param listToSort The list to be sorted
-     * @return A sorted list, based on the comparable implementation of numbers.
-     */
-    public List<Integer> insertionSort(List<Integer> listToSort) {
-        int index = 0;
-
-        while (index < listToSort.size()) {
-            int currentNumber = listToSort.get(index);
-            int newIndex = index;
-
-            while (newIndex > 0 && currentNumber < listToSort.get(newIndex - 1)) {
-                listToSort.set(newIndex, listToSort.get(newIndex - 1));
-                listToSort.set((newIndex - 1), currentNumber);
-
-                newIndex--;
-            }
-
-            index++;
-        }
-
-        return listToSort;
     }
 }

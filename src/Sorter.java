@@ -11,21 +11,9 @@ public class Sorter implements Runnable {
     public void run() {
         //This run also does an insertion sort, a duplicate of the one in Main, as both main and multi threading need
         // them separate.
-        int index = 0;
+        SortingAlgorithms sortingAlgorithms = new SortingAlgorithms();
 
-        while (index < myIntegerList.size()) {
-            int currentNumber = myIntegerList.get(index);
-            int newIndex = index;
-
-            while (newIndex > 0 && currentNumber < myIntegerList.get(newIndex - 1)) {
-                myIntegerList.set(newIndex, myIntegerList.get(newIndex - 1));
-                myIntegerList.set((newIndex - 1), currentNumber);
-
-                newIndex--;
-            }
-
-            index++;
-        }
+        myIntegerList = sortingAlgorithms.insertionSort(myIntegerList);
     }
 
     public List<Integer> getMyIntegerList() {
