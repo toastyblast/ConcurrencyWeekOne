@@ -136,52 +136,17 @@ public class Main {
     public void runExercisePart3() {
         List<Integer> arrayListToSort = new ArrayList<>();
         int wantedArraySize = 25000;
-        int newThreadThreshold = 10000;
+//        int newThreadThreshold = 10000;
 
         for (int i = 0; i < wantedArraySize; i++) {
             arrayListToSort.add((int) ((Math.random() * 1000) + 1));
         }
 
-        //TODO: REDO THIS PART UNDER HERE LIKE THE PDF EXPLAINS THE EXERCISE PART
-        //First check if there would be left over numbers to sort, like in the case of 250/100, which would mean starting
-        // 2 threads, and a third one for the last 50 numbers.
-        ArrayList<Thread> threads = new ArrayList<>();
-        int leftoverNumbers = wantedArraySize % newThreadThreshold;
-        int arraySizeMinusModulo = wantedArraySize - leftoverNumbers;
-        int amountOfThreadsToStart = arraySizeMinusModulo / newThreadThreshold;
-        int arrayHead = 0;
-        int arrayTail = arraySizeMinusModulo / amountOfThreadsToStart;
-
-        //Make new threads, give them their part of the ArrayList and save them to start soon. Then define what the head
-        // and tail for the next thread's ArrayList will be.
-        for (int i = 0; i < amountOfThreadsToStart; i++) {
-            threads.add(new Thread(new Sorter(arrayListToSort.subList(arrayHead, (arrayTail - 1)))));
-            arrayHead = arrayTail;
-            arrayTail = arrayTail + (arraySizeMinusModulo / amountOfThreadsToStart);
-        }
-        //If the modulo did result in leftover numbers, start a new thread for those too.
-        if (leftoverNumbers > 0) {
-            Thread leftoverThread = new Thread(new Sorter(arrayListToSort.subList(arraySizeMinusModulo, (wantedArraySize - 1))));
-            threads.add(leftoverThread);
-        }
+        //TODO: Do any prep that shouldn't be tracked here.
 
         Long startTime = System.currentTimeMillis();
 
-        //TODO: Not sure if you should load threads like this, let alone store them like this.
-        for (int i = 0; i < threads.size(); i++) {
-            threads.get(i).start();
-        }
-
-        try {
-            for (int i = 0; i < threads.size(); i++) {
-                threads.get(i).join();
-            }
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-
-        //TODO: Merge the multiple lists...
-        //TODO...
+        //TODO: PLACE PART 3 HERE
 
         List<Integer> sortedArrayList = new ArrayList<>();
 
