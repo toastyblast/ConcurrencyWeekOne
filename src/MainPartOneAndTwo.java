@@ -133,9 +133,11 @@ public class MainPartOneAndTwo {
         int wantedArraySize = 25000;
 
         SortingAlgorithms sortingAlgorithms = new SortingAlgorithms();
+
         ArrayList<Integer> firstHalf = new ArrayList<>();
         ArrayList<Integer> secondHalf = new ArrayList<>();
 
+        //Create two threads which will fill the lists, which later on will be sorted.
         Thread t1 = new SplittingPartThree(firstHalf, wantedArraySize / 2);
         Thread t2 = new SplittingPartThree(secondHalf, wantedArraySize / 2);
 
@@ -165,6 +167,7 @@ public class MainPartOneAndTwo {
             e.printStackTrace();
         }
 
+        //Merge the two array lists.
         List<Integer> finalList = sortingAlgorithms.mergeTwoArrayLists(firstHalf, secondHalf);
 
         //Assignment is done, end the timer.
