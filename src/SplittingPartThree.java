@@ -1,6 +1,9 @@
-import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * ...
+ * Mainly programmed by Martin S. Slavov.
+ */
 public class SplittingPartThree extends Thread {
     private List<Integer> list;
     private int max;

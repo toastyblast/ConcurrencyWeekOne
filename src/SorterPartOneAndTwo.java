@@ -2,6 +2,7 @@ import java.util.List;
 
 /**
  * ...
+ * Mainly programmed by Martin S. Slavov.
  */
 public class SorterPartOneAndTwo implements Runnable {
     private List<Integer> myIntegerList;

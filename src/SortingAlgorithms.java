@@ -3,6 +3,7 @@ import java.util.List;
 
 /**
  * A class that exists purely to have global methods for sorting and merging.
+ * Mainly programmed by Yoran Kerbusch.
  */
 public class SortingAlgorithms {
     public SortingAlgorithms() {

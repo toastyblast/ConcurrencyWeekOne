@@ -1,8 +1,11 @@
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * ...
+ * Mainly programmed by Martin S. Slavov.
+ */
 public class SortingPartThree extends Thread {
-
     private List<Integer> list;
     private int max;
 
@@ -19,9 +22,6 @@ public class SortingPartThree extends Thread {
             List<Integer> copyList = list;
             List<Integer> list1 = new ArrayList<>();
             List<Integer> list2 = new ArrayList<>();
-
-//            list1 = list.subList(0, copyList.size()/2);
-//            list2 = list.subList(copyList.size()/2, copyList.size());
 
             for (int i = 0 ; i < max ; i++){
                 if (i < max/2)
