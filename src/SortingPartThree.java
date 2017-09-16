@@ -16,9 +16,7 @@ public class SortingPartThree extends Thread {
 
     @Override
     public void run() {
-
         if (list.size() >= max){
-
             List<Integer> copyList = list;
             List<Integer> list1 = new ArrayList<>();
             List<Integer> list2 = new ArrayList<>();
@@ -30,8 +28,9 @@ public class SortingPartThree extends Thread {
                     list2.add(copyList.get(i));
             }
 
-            Thread t1 = new SortingPartThree(list1, 1000000);
-            Thread t2 = new SortingPartThree(list2, 1000000);
+            //TODO: Change the max here to influence how big the thresholds are!
+            Thread t1 = new SortingPartThree(list1, 5000);
+            Thread t2 = new SortingPartThree(list2, 5000);
 
             t1.start();
             t2.start();

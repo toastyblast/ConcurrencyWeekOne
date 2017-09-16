@@ -1,18 +1,18 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainPartOneAndTwo {
+public class Main {
     public static void main(String[] args) {
-        new MainPartOneAndTwo().run();
+        new Main().run();
     }
 
     /**
-     * Method that can be used to select which of the three parts you want to run on MainPartOneAndTwo.
+     * Method that can be used to select which of the three parts you want to run on Main.
      * Mainly programmed by Yoran Kerbusch.
      */
     public void run() {
-        //Change this number to run a different part of the assignment.
-        int exercisePart = 2;
+        //TODO: Change this number to run a different part of the assignment.
+        int exercisePart = 3;
 
         //For choosing which exercise part to run. Used a switch before, but that decided to run all three regardless,
         // so we decided to use for-statements instead.
@@ -31,8 +31,10 @@ public class MainPartOneAndTwo {
      * Mainly programmed by Yoran Kerbusch.
      */
     public void runExercisePart1() {
+        //TODO: Change this number to influence how many times the program will run.
         double amountOfTimesToRun = 10.0;
-        int desiredArrayListSize = 250000;
+        //TODO: Change this number to influence how big the size that the program will sort is.
+        int desiredArrayListSize = 25000;
         double overallTime = 0.0;
 
         for (int i = 1; i < (amountOfTimesToRun + 1); i++) {
@@ -69,7 +71,9 @@ public class MainPartOneAndTwo {
      * Mainly programmed by Yoran Kerbusch.
      */
     public void runExercisePart2() {
+        //TODO: Change this number to influence how many times the program will run.
         double amountOfTimesToRun = 10.0;
+        //TODO: Change this number to influence how big the size that the program will sort is. Please only fill in numbers than can be divided by 2.
         int desiredArrayListSize = 25000;
         double overallTime = 0.0;
 
@@ -118,7 +122,7 @@ public class MainPartOneAndTwo {
             Long endTime = System.currentTimeMillis();
 
             double totalTime = (endTime - startTime) / 1000.0;
-            System.out.println("~[DONE] - Try " + i + " - Total time taken by MAIN-THREAD insertion sort: " + totalTime + " s.");
+            System.out.println("~[DONE] - Try " + i + " - Total time taken by DOUBLE-THREAD insertion sort: " + totalTime + " s.");
             //Add this timer to the total count to get the average over the amount of tests.
             overallTime += totalTime;
             //Uncomment the following three lines to check if the sorting algorithm actually works.
@@ -139,8 +143,10 @@ public class MainPartOneAndTwo {
      * Mainly programmed by Martin S. Slavov.
      */
     public void runExercisePart3() {
+        //TODO: Change this number to influence how many times the program will run.
         double amountOfTimesToRun = 10.0;
-        int desiredArrayListSize = 25000;
+        //TODO: Change this number to influence how big the size that the program will sort is.
+        int desiredArrayListSize = 50000;
         double overallTime = 0.0;
 
         for (int i = 1; i < (amountOfTimesToRun + 1); i++) {
@@ -193,7 +199,7 @@ public class MainPartOneAndTwo {
             }
 
             double totalTime = (endTime - startTime) / 1000.0;
-            System.out.println("~[DONE] - Try " + i + " - Total time taken by MAIN-THREAD insertion sort: " + totalTime + " s.");
+            System.out.println("~[DONE] - Try " + i + " - Total time taken by MULTI-SPLIT-THREAD insertion sort: " + totalTime + " s.");
             //Add this timer to the total count to get the average over the amount of tests.
             overallTime += totalTime;
             //Uncomment to see result list. However, with large lists, you won't be able to see the timers anymore.
