@@ -152,15 +152,12 @@ public class Main {
         double overallTime = 0.0;
 
         for (int i = 1; i < (amountOfTimesToRun + 1); i++) {
-
             SortingAlgorithms sortingAlgorithms = new SortingAlgorithms();
             ArrayList<Integer> firstHalf = new ArrayList<>();
             ArrayList<Integer> secondHalf = new ArrayList<>();
-
             //Create two threads which will put numbers into the two lists.
             Thread t1 = new SplittingPartThree(firstHalf, desiredArrayListSize / 2);
             Thread t2 = new SplittingPartThree(secondHalf, desiredArrayListSize / 2);
-
             //Start the timer now that the prep is done and the actual assignment is being worked on.
             Long startTime = System.currentTimeMillis();
 
@@ -173,7 +170,6 @@ public class Main {
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-
             //Create the first two threads which will start the splitting of the lists.
             Thread t3 = new SortingPartThree(firstHalf, desiredArrayListSize / 2);
             Thread t4 = new SortingPartThree(secondHalf, desiredArrayListSize / 2);
@@ -187,10 +183,8 @@ public class Main {
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-
             //Once the sorting and splitting is finished the two halves are merged.
             List<Integer> finalList = sortingAlgorithms.mergeTwoArrayLists(firstHalf, secondHalf);
-
             //Assignment is done, end the timer.
             Long endTime = System.currentTimeMillis();
 
@@ -208,7 +202,7 @@ public class Main {
 
             double totalTime = (endTime - startTime) / 1000.0;
             System.out.println("~[DONE] - Try " + i + " - Total time taken by MULTI-SPLIT-THREAD insertion sort: " + totalTime + " s.");
-            if (ok){
+            if (ok) {
                 System.out.println("ok");
             }
             //Add this timer to the total count to get the average over the amount of tests.

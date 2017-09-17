@@ -40,7 +40,7 @@ public class SortingAlgorithms {
     /**
      * Method that merges the two given lists into one resulting list.
      *
-     * @param firstSortedArrayList is the first list given to merge.
+     * @param firstSortedArrayList  is the first list given to merge.
      * @param secondSortedArrayList is the second list given to merge with the first list.
      * @return a list that is the two given lists merged together.
      */
@@ -57,8 +57,7 @@ public class SortingAlgorithms {
                 // add the list one number and increase the index to the next number in list one.
                 mergedSortedArrayList.add(firstSortedArrayList.get(indexFirstList));
                 indexFirstList++;
-            }
-            else {
+            } else {
                 //If the number at the secondIndex in list two is equal to or smaller than the number at the firstIndex in list one,
                 // add the list two number and increase the secondIndex to the next number in list two.
                 mergedSortedArrayList.add(secondSortedArrayList.get(indexSecondList));
