@@ -20,7 +20,6 @@ public class SortingPartThree extends Thread {
 //        list.size() >= max
 //        list.size()%2 == 0
 
-        if (list.size() % 2 == 0) {
             if (list.size() >= max) {
 
                 List<Integer> copyList = list;
@@ -34,9 +33,9 @@ public class SortingPartThree extends Thread {
                         list2.add(list.get(i));
                 }
 
-
-                Thread t1 = new SortingPartThree(list1, 100000);
-                Thread t2 = new SortingPartThree(list2, 100000);
+                //Change values here to change the threshold
+                Thread t1 = new SortingPartThree(list1, 10000);
+                Thread t2 = new SortingPartThree(list2, 10000);
 
                 t1.start();
                 t2.start();
@@ -59,15 +58,15 @@ public class SortingPartThree extends Thread {
                     e.printStackTrace();
                 }
 
-            for (int a = 1 ; a < list.size() ; a++){
-                if (list.get(a-1) > list.get(a)){
-                    System.out.println("FromThread " + max);
-                    System.out.println(list.get(a-1) + " " + list.get(a));
-                    break;
-                }
-            }
+//            for (int a = 1 ; a < list.size() ; a++){
+//                if (list.get(a-1) > list.get(a)){
+//                    System.out.println("FromThread " + max);
+//                    System.out.println(list.get(a-1) + " " + list.get(a));
+//                    break;
+//                }
+//            }
 
-                System.out.println("From branch" + list.size());
+//                System.out.println("From branch" + list.size());
 
             }
             else {
@@ -86,27 +85,8 @@ public class SortingPartThree extends Thread {
                         index = index + 1;
                     }
                 }
-                System.out.println(list.size() + "From leaf");
+//                System.out.println(list.size() + "From leaf");
             }
-        }
-        else {
-
-            int index = 1;
-            while (index < list.size()) {
-                int element = list.get(index);
-                int newIndex = index;
-                while (newIndex > 0 && list.get(newIndex - 1) > element) {
-                    int newNumber = list.get(newIndex - 1);
-                    list.set(newIndex, newNumber);
-                    newIndex = newIndex - 1;
-                }
-                if (list.get(newIndex) >= element) {
-                    list.set(newIndex, element);
-                    index = index + 1;
-                }
-            }
-            System.out.println(list.size() + "From leaf");
-        }
     }
 
     private void mergeIntoExistingList(List<Integer> list1, List<Integer> list2) throws InterruptedException {
