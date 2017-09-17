@@ -22,7 +22,8 @@ public class SortingPartThree extends Thread {
 
             if (list.size() >= max) {
 
-                List<Integer> copyList = list;
+                //Two new lists are created and they get filled, with the numbers form the list that was passed to the
+                //thread.
                 List<Integer> list1 = new ArrayList<>();
                 List<Integer> list2 = new ArrayList<>();
 
@@ -51,13 +52,14 @@ public class SortingPartThree extends Thread {
                     e.printStackTrace();
                 }
 
-
+                //Merge the lists that were sorted by the threads.
                 try {
                     mergeIntoExistingList(list1, list2);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
 
+                //Safety checks to see if the lists are sorted.
 //            for (int a = 1 ; a < list.size() ; a++){
 //                if (list.get(a-1) > list.get(a)){
 //                    System.out.println("FromThread " + max);
@@ -71,6 +73,7 @@ public class SortingPartThree extends Thread {
             }
             else {
 
+                //Insertion sort.
                 int index = 1;
                 while (index < list.size()) {
                     int element = list.get(index);
@@ -89,7 +92,14 @@ public class SortingPartThree extends Thread {
             }
     }
 
+    /**
+     * Merging algorithm, that merges the two lists that get passed to it.
+     * @param list1 List received from the first thread.
+     * @param list2 List received from the second thread.
+     * @throws InterruptedException
+     */
     private void mergeIntoExistingList(List<Integer> list1, List<Integer> list2) throws InterruptedException {
+
         int i = 0, j = 0, k = 0;
 
         while (i < list1.size() && j < list2.size()) {

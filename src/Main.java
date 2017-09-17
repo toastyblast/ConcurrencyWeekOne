@@ -146,16 +146,18 @@ public class Main {
         //TODO: Change this number to influence how many times the program will run.
         double amountOfTimesToRun = 10.0;
         //TODO: Change this number to influence how big the size that the program will sort is.
-        int desiredArrayListSize = 800000;
+        int desiredArrayListSize = 200000;
         //TODO: To change the threshold, go to the SortingPartThree.java class.
         //Value that stores all the times to ultimately calculate the average time taken by the amount of tests done at once.
         double overallTime = 0.0;
 
         for (int i = 1; i < (amountOfTimesToRun + 1); i++) {
+
             SortingAlgorithms sortingAlgorithms = new SortingAlgorithms();
             ArrayList<Integer> firstHalf = new ArrayList<>();
             ArrayList<Integer> secondHalf = new ArrayList<>();
 
+            //Create two threads which will put numbers into the two lists.
             Thread t1 = new SplittingPartThree(firstHalf, desiredArrayListSize / 2);
             Thread t2 = new SplittingPartThree(secondHalf, desiredArrayListSize / 2);
 
@@ -172,6 +174,7 @@ public class Main {
                 e.printStackTrace();
             }
 
+            //Create the first two threads which will start the splitting of the lists.
             Thread t3 = new SortingPartThree(firstHalf, desiredArrayListSize / 2);
             Thread t4 = new SortingPartThree(secondHalf, desiredArrayListSize / 2);
 
@@ -185,6 +188,7 @@ public class Main {
                 e.printStackTrace();
             }
 
+            //Once the sorting and splitting is finished the two halves are merged.
             List<Integer> finalList = sortingAlgorithms.mergeTwoArrayLists(firstHalf, secondHalf);
 
             //Assignment is done, end the timer.
