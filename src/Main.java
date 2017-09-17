@@ -191,17 +191,22 @@ public class Main {
             Long endTime = System.currentTimeMillis();
 
             //As a quick safety check, do see if the list is actually sorted.
+            boolean ok = true;
             for (int a = 1; a < finalList.size(); a++) {
 
                 if (finalList.get(a - 1) > finalList.get(a)) {
                     System.out.println("Final");
                     System.out.println(finalList.get(a - 1) + " " + finalList.get(a));
+                    ok = false;
                     break;
                 }
             }
 
             double totalTime = (endTime - startTime) / 1000.0;
             System.out.println("~[DONE] - Try " + i + " - Total time taken by MULTI-SPLIT-THREAD insertion sort: " + totalTime + " s.");
+            if (ok){
+                System.out.println("ok");
+            }
             //Add this timer to the total count to get the average over the amount of tests.
             overallTime += totalTime;
             //Uncomment to see result list. However, with large lists, you won't be able to see the timers anymore.
