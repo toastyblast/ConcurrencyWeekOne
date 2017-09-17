@@ -144,9 +144,11 @@ public class Main {
      */
     public void runExercisePart3() {
         //TODO: Change this number to influence how many times the program will run.
-        double amountOfTimesToRun = 10.0;
+        double amountOfTimesToRun = 1.0;
         //TODO: Change this number to influence how big the size that the program will sort is.
-        int desiredArrayListSize = 50000;
+        int desiredArrayListSize = 800000;
+        //TODO: To change the threshold, go to the SortingPartThree.java class.
+        //Value that stores all the times to ultimately calculate the average time taken by the amount of tests done at once.
         double overallTime = 0.0;
 
         for (int i = 1; i < (amountOfTimesToRun + 1); i++) {
